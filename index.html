@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class 4 Exercise</title>
+  </head>
+  <body>
+    <h1>Class 4</h1>
+    <ul id="chat">
+        
+    </ul>
+
+
+    <form id="form">
+      Nickname:
+      <input type="text" id="nickname">
+      <br />
+      <br />
+      Message:
+      <input type="text" id="message">
+      <br />
+      <br />
+      <input type="submit" value="Send">
+    </form>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+     const firebaseConfig = {
+  apiKey: "AIzaSyBD8uLFonA4phh_ncn_aJbEHs3hAoayBtc",
+  authDomain: "wddm-120-75317.firebaseapp.com",
+  projectId: "wddm-120-75317",
+  storageBucket: "wddm-120-75317.appspot.com",
+  messagingSenderId: "1077978049037",
+  appId: "1:1077978049037:web:8ad8ba637d64645fb4c344"
+};
+
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
