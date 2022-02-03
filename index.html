@@ -4,40 +4,104 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Class 4 Exercise</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .chat_msg {
+        position: relative;
+        background-color: #368dda;
+        color: white;
+        margin: 61px 10px;
+        padding: 8px 27px 9px 15px;
+        border-radius: 40px;
+        width: fit-content;
+      }
+      .chat_msg:before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 24px solid #368dda;
+        border-right: 12px solid transparent;
+        border-top: 12px solid #368dda;
+        border-bottom: 20px solid transparent;
+        left: 32px;
+        bottom: -24px;
+      }
+      .chat_msg_self {
+        position: relative;
+        background-color: gray;
+        color: white;
+        margin: 61px 10px;
+        padding: 8px 27px 9px 15px;
+        border-radius: 40px;
+        width: fit-content;
+        left: 310px;
+      }
+      .chat_msg_self:before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 24px solid gray;
+        border-right: 12px solid transparent;
+        border-top: 12px solid gray;
+        border-bottom: 20px solid transparent;
+        left: 32px;
+        bottom: -24px;
+      }
+      .chat_msg_name,
+      .chat_msg_delete {
+        position: absolute;
+      }
+      .chat_msg_name {
+        left: 2px;
+        bottom: -43px;
+        background: #b7b7b7;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+      .chat_msg_delete {
+        right: 10px;
+        font-size: 10px;
+        top: 12px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <h1>Class 4</h1>
-    
-
     <form id="form">
       Nickname:
-      <input type="text" id="nickname">
+      <input type="text" id="nickname" />
       <br />
       <br />
       Message:
-      <input type="text" id="message">
+      <input type="text" id="message" />
       <br />
       <br />
-      <input type="submit" value="Send">
+      <input type="submit" value="Send" />
     </form>
-    <ul id="chat">
-        
-    </ul>
-
+    <ul id="chat"></ul>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script>
-     const firebaseConfig = {
+        const firebaseConfig = {
   apiKey: "AIzaSyBD8uLFonA4phh_ncn_aJbEHs3hAoayBtc",
   authDomain: "wddm-120-75317.firebaseapp.com",
   projectId: "wddm-120-75317",
   storageBucket: "wddm-120-75317.appspot.com",
   messagingSenderId: "1077978049037",
   appId: "1:1077978049037:web:8ad8ba637d64645fb4c344"
-};
+      };
 
       firebase.initializeApp(firebaseConfig);
     </script>
-    <script src="script.js"></script>
+    <script src="sscript.js"></script>
   </body>
 </html>
