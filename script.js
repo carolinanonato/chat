@@ -26,9 +26,24 @@ document.addEventListener("DOMContentLoaded", function () {
        .catch((err) => console.log("Error adding document", err));
     }
 
+function deleteChat(id) {
+    db.collection("Chat")
+    .doc(id)
+    .delete()
+    .then(() => console.log("Document successfully deleted"))
+    .catch((err) => console.log("Error deleting document", err));
+}
 
+    function updateChat(id, msg) {
+    db.collection("Chat")
+      .doc(id)
+      .update({
+        msg,
+      })
+      .then((docRef) => console.log("Document updated with ID:", docRef.id))
+      .catch((err) => console.log("Error updating document", err));
+  }
 
-    
 
     function init () {
         db.collection("Chat")
@@ -43,7 +58,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 const spanName = document.createElement('span')
                 spanName.innerHTML = doc.data().nickname
 
+                const spanDel = document.createElement('span')
+                spanDel.innerHTML = "&#10005"
+                spanDel.addEventListener('click', () => {
+                  deleteChat(doc.id)
+                })
+
+
+
+                
                 liChat.appendChild(spanName)
+                liChat.appendChild(spanDel)
 
 
                 chat.appendChild(liChat)
