@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
       if (nickname.value && msg.value) {
         addChat(nickname.value, msg.value);
+        msg.value= '';
       }
     });
   
@@ -25,14 +26,27 @@ document.addEventListener("DOMContentLoaded", function () {
        .catch((err) => console.log("Error adding document", err));
     }
 
+
+
+    
+
     function init () {
         db.collection("Chat")
         .orderBy("timestamp", "desc")
         .onSnapshot(function (querySnapshot) {
+            chat.innerHTML= '';
             querySnapshot.forEach(doc => {
-                const li = document.createElement('li')
-                li.innerHTML = doc.data().msg
-                chat.appendChild(li)
+
+                const liChat = document.createElement('li')
+                liChat.innerHTML = doc.data().msg
+
+                const spanName = document.createElement('span')
+                spanName.innerHTML = doc.data().nickname
+
+                liChat.appendChild(spanName)
+
+
+                chat.appendChild(liChat)
                 
  })
 })
